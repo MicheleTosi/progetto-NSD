@@ -206,6 +206,9 @@ ip address 2.255.0.4/32
 interface eth1
 ip address 10.0.20.1/30
 
+interface eth0
+ip address 2.4.10.1/24
+
 router ospf
 router-id 2.255.0.4
 
@@ -223,7 +226,17 @@ end
 exit
 ```
 
-**MANCA ANCORA 203**
+- R203
+```bash
+ip a a 192.168.1.1/24 dev eth0
+ip a a 2.4.10.10/24 dev eth1
+
+iptables -t nat -F
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+
+ip route add default via 2.4.10.1
+```
 
 ### AS 300
 - R301:
@@ -255,6 +268,7 @@ neighbor 3.255.0.4 next-hop-self
 neighbor 10.0.35.1 remote-as 100
 end
 ```
+
 - R302:
 ```bash
 conf t
@@ -266,6 +280,8 @@ interface eth0
 ip address 10.0.65.2/30
 interface eth1
 ip address 10.0.16.1/30
+interface eth2
+ip address 3.5.10.1/24
 
 router ospf
 router-id 3.255.0.4
@@ -282,8 +298,20 @@ neighbor 3.255.0.2 next-hop-self
 
 neighbor 10.0.16.2 remote-as 400
 end
+
+show ip route
+show ip bgp
 ```
-**MANCA GW300**
+- GW300 <!--manca indirizzo IP verso DC>
+```bash
+ip a a 3.5.10.10/24 dev eth0
+
+iptables -t nat -F
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+ip route add default via 3.5.10.1
+```
 
 ### AS 400
 - R401:
@@ -295,13 +323,27 @@ interface lo
 interface eth0
  ip address 10.0.16.2/30
 
+interface eth1
+ ip address 4.2.10.1/24
+
 router bgp 400
  network 4.2.0.1/16
 
  neighbor 10.0.16.1 remote-as 300
 end
 ```
-**MANCA ANCORA 402**
+
+- R402:
+```bash
+ip a a 192.168.2.2/24 dev eth1
+ip a a 4.2.10.10/24 dev eth0
+
+iptables -t nat -F
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+ip route add default via 4.2.10.1
+```
 
 Una volta eseguiti questi comandi si può testare se funziona facendo il ping tra un nodo di un qualsiasi AS e un nodo di un altro AS (con i nodi di AS100 non funziona, da chiarire forse chiedendo consiglio a Tulux).
 Per fare questo `ping <indirizzo_IP primo nodo> -I <indirizzo_IP secondo nodo>`.

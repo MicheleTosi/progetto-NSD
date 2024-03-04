@@ -1,22 +1,22 @@
 uBridge version 0.9.16 running with Npcap version 1.78, based on libpcap version 1.10.4
-Hypervisor TCP control server started (IP localhost port 50102).
-UDP tunnel connecting from local port 10038 to IPv4 addresss 127.0.0.1 on port 10037
+Hypervisor TCP control server started (IP localhost port 53220).
+UDP tunnel connecting from local port 10025 to IPv4 addresss 127.0.0.1 on port 10024
 UDP tunnel connecting from local port 10005 to IPv4 addresss 127.0.0.1 on port 10004
 Source NIO listener thread for VBOX-c8485781-7434-44f1-8487-3009ba5fdf97-1 has started
 Destination NIO listener thread for VBOX-c8485781-7434-44f1-8487-3009ba5fdf97-1 has started
-UDP tunnel connecting from local port 10044 to IPv4 addresss 127.0.0.1 on port 10043
+UDP tunnel connecting from local port 10031 to IPv4 addresss 127.0.0.1 on port 10030
 UDP tunnel connecting from local port 10009 to IPv4 addresss 127.0.0.1 on port 10008
 Source NIO listener thread for VBOX-c8485781-7434-44f1-8487-3009ba5fdf97-2 has started
 Destination NIO listener thread for VBOX-c8485781-7434-44f1-8487-3009ba5fdf97-2 has started
-UDP tunnel connecting from local port 10050 to IPv4 addresss 127.0.0.1 on port 10049
-UDP tunnel connecting from local port 10000 to IPv4 addresss 192.168.56.102 on port 20024
+UDP tunnel connecting from local port 10037 to IPv4 addresss 127.0.0.1 on port 10036
+UDP tunnel connecting from local port 10000 to IPv4 addresss 192.168.56.102 on port 20022
 Source NIO listener thread for VBOX-c8485781-7434-44f1-8487-3009ba5fdf97-3 has started
 Destination NIO listener thread for VBOX-c8485781-7434-44f1-8487-3009ba5fdf97-3 has started
-UDP tunnel connecting from local port 10054 to IPv4 addresss 127.0.0.1 on port 10053
-UDP tunnel connecting from local port 10001 to IPv4 addresss 192.168.56.102 on port 20025
+UDP tunnel connecting from local port 10043 to IPv4 addresss 127.0.0.1 on port 10042
+UDP tunnel connecting from local port 10001 to IPv4 addresss 192.168.56.102 on port 20023
 Source NIO listener thread for VBOX-c8485781-7434-44f1-8487-3009ba5fdf97-4 has started
 Destination NIO listener thread for VBOX-c8485781-7434-44f1-8487-3009ba5fdf97-4 has started
-UDP tunnel connecting from local port 10058 to IPv4 addresss 127.0.0.1 on port 10057
-UDP tunnel connecting from local port 10012 to IPv4 addresss 192.168.56.102 on port 20028
+UDP tunnel connecting from local port 10047 to IPv4 addresss 127.0.0.1 on port 10046
+UDP tunnel connecting from local port 10012 to IPv4 addresss 192.168.56.102 on port 20026
 Source NIO listener thread for VBOX-c8485781-7434-44f1-8487-3009ba5fdf97-5 has started
 Destination NIO listener thread for VBOX-c8485781-7434-44f1-8487-3009ba5fdf97-5 has started

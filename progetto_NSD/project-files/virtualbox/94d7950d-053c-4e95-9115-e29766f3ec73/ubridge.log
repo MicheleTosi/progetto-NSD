@@ -1,18 +1,18 @@
 uBridge version 0.9.16 running with Npcap version 1.78, based on libpcap version 1.10.4
-Hypervisor TCP control server started (IP localhost port 50105).
-UDP tunnel connecting from local port 10042 to IPv4 addresss 127.0.0.1 on port 10041
+Hypervisor TCP control server started (IP localhost port 53252).
+UDP tunnel connecting from local port 10053 to IPv4 addresss 127.0.0.1 on port 10052
 UDP tunnel connecting from local port 10007 to IPv4 addresss 127.0.0.1 on port 10006
 Source NIO listener thread for VBOX-94d7950d-053c-4e95-9115-e29766f3ec73-1 has started
 Destination NIO listener thread for VBOX-94d7950d-053c-4e95-9115-e29766f3ec73-1 has started
-UDP tunnel connecting from local port 10048 to IPv4 addresss 127.0.0.1 on port 10047
+UDP tunnel connecting from local port 10059 to IPv4 addresss 127.0.0.1 on port 10058
 UDP tunnel connecting from local port 10011 to IPv4 addresss 127.0.0.1 on port 10010
 Source NIO listener thread for VBOX-94d7950d-053c-4e95-9115-e29766f3ec73-2 has started
 Destination NIO listener thread for VBOX-94d7950d-053c-4e95-9115-e29766f3ec73-2 has started
-UDP tunnel connecting from local port 10052 to IPv4 addresss 127.0.0.1 on port 10051
-UDP tunnel connecting from local port 10002 to IPv4 addresss 192.168.56.102 on port 20026
+UDP tunnel connecting from local port 10061 to IPv4 addresss 127.0.0.1 on port 10060
+UDP tunnel connecting from local port 10002 to IPv4 addresss 192.168.56.102 on port 20024
 Source NIO listener thread for VBOX-94d7950d-053c-4e95-9115-e29766f3ec73-3 has started
 Destination NIO listener thread for VBOX-94d7950d-053c-4e95-9115-e29766f3ec73-3 has started
-UDP tunnel connecting from local port 10056 to IPv4 addresss 127.0.0.1 on port 10055
-UDP tunnel connecting from local port 10003 to IPv4 addresss 192.168.56.102 on port 20027
+UDP tunnel connecting from local port 10063 to IPv4 addresss 127.0.0.1 on port 10062
+UDP tunnel connecting from local port 10003 to IPv4 addresss 192.168.56.102 on port 20025
 Source NIO listener thread for VBOX-94d7950d-053c-4e95-9115-e29766f3ec73-4 has started
 Destination NIO listener thread for VBOX-94d7950d-053c-4e95-9115-e29766f3ec73-4 has started
