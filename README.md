@@ -238,6 +238,12 @@ iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 ip route add default via 2.4.10.1
 ```
 
+- client-200:
+```bash
+ip a a 192.168.1.2/24 dev enp0s8
+sudo ip add route default via 192.168.1.1
+```
+
 ### AS 300
 - R301:
 ```bash
@@ -387,7 +393,6 @@ net commit
 
 - L1:
 ```bash
-net del all
 net commit
 
 net add bridge bridge ports swp3,swp4
@@ -408,14 +413,40 @@ net add ospf passive-interface swp3,swp4
 net commit
 
 net add vxlan vni100 vxlan id 100
-net add vxlan vni100 vxlan remoteip 2.2.2.2
+
 net add vxlan vni100 vxlan local-tunnelip 1.1.1.1
 net add vxlan vni100 bridge access 10
 net add vxlan vni200 vxlan id 200
-net add vxlan vni200 vxlan remoteip 2.2.2.2
+
 net add vxlan vni200 vxlan local-tunnelip 1.1.1.1
 net add vxlan vni200 bridge access 20
 
+net add bgp autonomous-system 65001
+net add bgp router-id 1.1.1.1
+
+net add bgp neighbor swp1 remote-as 65000
+net add bgp neighbor swp2 remote-as 65000
+
+net add bgp evpn neighbor swp1 activate
+net add bgp evpn neighbor swp2 activate
+net add bgp evpn advertise-all-vni
+
+net commit
+
+net add vlan 10 ip address 10.0.0.254/24
+net add vlan 20 ip address 10.1.1.254/24
+net commit
+
+net add vlan 50
+net add vxlan vni-1020 vxlan id 1020
+net add vxlan vni-1020 vxlan local-tunnelip 1.1.1.1
+net add vxlan vni-1020 bridge access 50
+net commit
+
+net add vrf TEN1 vni 1020
+net add vlan 50 vrf TEN1
+net add vlan 10 vrf TEN1
+net add vlan 20 vrf TEN1
 net commit
 ```
 
@@ -439,14 +470,40 @@ net add ospf network 2.2.2.2/32 area 0
 net add ospf passive-interface swp3,swp4
 
 net add vxlan vni100 vxlan id 100
-net add vxlan vni100 vxlan remoteip 1.1.1.1
+
 net add vxlan vni100 vxlan local-tunnelip 2.2.2.2
 net add vxlan vni100 bridge access 10
 net add vxlan vni200 vxlan id 200
-net add vxlan vni200 vxlan remoteip 1.1.1.1
+
 net add vxlan vni200 vxlan local-tunnelip 2.2.2.2
 net add vxlan vni200 bridge access 20
 
+net add bgp autonomous-system 65002
+net add bgp router-id 2.2.2.2
+
+net add bgp neighbor swp1 remote-as 65000
+net add bgp neighbor swp2 remote-as 65000
+
+net add bgp evpn neighbor swp1 activate
+net add bgp evpn neighbor swp2 activate
+net add bgp evpn advertise-all-vni
+
+net commit
+
+net add vlan 10 ip address 10.0.0.254/24
+net add vlan 20 ip address 10.1.1.254/24
+net commit
+
+net add vlan 50
+net add vxlan vni-1020 vxlan id 1020
+net add vxlan vni-1020 vxlan local-tunnelip 2.2.2.2
+net add vxlan vni-1020 bridge access 50
+net commit
+
+net add vrf TEN1 vni 1020
+net add vlan 50 vrf TEN1
+net add vlan 10 vrf TEN1
+net add vlan 20 vrf TEN1
 net commit
 ```
 
@@ -454,20 +511,24 @@ I nodi client sotto ogni leaf sono stati configurati nel seguente modo:
 - A1:
 ```bash
 ip addr add 10.0.0.1/24 dev eth0
+ip route add default via 10.0.0.254
 ```
 
 - A2:
 ```bash
 ip addr add 10.0.0.2/24 dev eth0
+ip route add default via 10.0.0.254
 ```
 
 - B1:
 ```bash
-ip addr add 10.0.0.1/24 dev eth0
+ip addr add 10.1.1.1/24 dev eth0
+ip route add default via 10.1.1.254
 ```
 
 - B2:
 ```bash
-ip addr add 10.0.0.2/24 dev eth0
+ip addr add 10.1.1.2/24 dev eth0
+ip route add default via 10.1.1.254
 ```
 
