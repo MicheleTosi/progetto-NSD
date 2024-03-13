@@ -7,7 +7,7 @@ interface eth1
 ip address 10.0.20.1/30
 
 interface eth0
-ip address 10.0.10.1/30
+ip address 2.4.10.1/24
 
 router ospf
 router-id 2.255.0.4
