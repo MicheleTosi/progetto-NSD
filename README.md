@@ -1,7 +1,7 @@
 # Progetto 1
 
 # Topologia
-![Alt text](img/topologia_address.png)
+![Alt text](img/topologia_address.jpeg)
 
 ## BGP
 Per quanto riguarda gli AS configuriamo i vari nodi per scambiarsi messaggi con BGP.
