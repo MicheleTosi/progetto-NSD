@@ -1,4 +1,10 @@
-# Progetto 1
+# Progetto 1 del corso di Network and System Defence dell'Università di Roma Tor Vergata
+
+__Autori__
+* :woman_technologist: Arianna Quinci (matricola 0325090)
+* :man_technologist: Michele Tosi (matricola 0327862)
+* :man_technologist: Simone Festa (matricola 0320408)
+
 
 # Topologia
 ![Alt text](img/topologia_address.jpeg)
